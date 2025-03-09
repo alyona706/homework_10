@@ -14,13 +14,15 @@ const contactBook = {
 };
 
 function getContact(obj, name) {
+  let message;
   const contact = obj.contacts.find(contact => {
     if (contact.name === name) {
-      return console.log(contact);
+      message = contact;
     } else {
-      return 'Контакт не знайдено';
+      message = 'Контакт не знайдено';
     }
-  })
+  });
+  return console.log(message);
 }
 
 function addContact(obj, name, phone, email) {
@@ -30,5 +32,4 @@ function addContact(obj, name, phone, email) {
 }
 
 getContact(contactBook, 'Alice Cooper');
-
 addContact(contactBook, 'Jhon Brown', '+380999999999', 'jhon.brown@mail.com');
