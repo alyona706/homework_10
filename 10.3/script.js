@@ -12,15 +12,7 @@ const contactBook = {
     }
   ],
   find: function(name) {
-    let message;
-    const contact = this.contacts.find(contact => {
-      if (contact.name === name) {
-        message = contact;
-      } else {
-        message = 'Контакт не знайдено';
-      }
-    });
-    return console.log(message);
+    return this.contacts.find(contact => contact.name === name);
   },
   add: function(name, phone, email) {
     const newContact = { name, phone, email };
@@ -28,5 +20,5 @@ const contactBook = {
     return console.log(this);
   }
 };
-contactBook.find('Alice Cooper');
+console.log(contactBook.find('Alice Cooper'));
 contactBook.add('Jhon Brown', '+380999999999', 'jhon.brown@mail.com');
