@@ -11,25 +11,22 @@ const contactBook = {
       email: 'alice.cooper@mail.com',
     }
   ],
+  find: function(name) {
+    let message;
+    const contact = this.contacts.find(contact => {
+      if (contact.name === name) {
+        message = contact;
+      } else {
+        message = 'Контакт не знайдено';
+      }
+    });
+    return console.log(message);
+  },
+  add: function(name, phone, email) {
+    const newContact = { name, phone, email };
+    this.contacts.push(newContact);
+    return console.log(this);
+  }
 };
-
-function getContact(obj, name) {
-  let message;
-  const contact = obj.contacts.find(contact => {
-    if (contact.name === name) {
-      message = contact;
-    } else {
-      message = 'Контакт не знайдено';
-    }
-  });
-  return console.log(message);
-}
-
-function addContact(obj, name, phone, email) {
-  const newContact = { name, phone, email };
-  obj.contacts.push(newContact);
-  return console.log(obj);
-}
-
-getContact(contactBook, 'Alice Cooper');
-addContact(contactBook, 'Jhon Brown', '+380999999999', 'jhon.brown@mail.com');
+contactBook.find('Alice Cooper');
+contactBook.add('Jhon Brown', '+380999999999', 'jhon.brown@mail.com');
