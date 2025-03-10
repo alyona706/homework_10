@@ -37,8 +37,8 @@ showCountOrderByMap(orders);
 
 function showSumUserOrders(obj) {
     const users = {};
-    
-    for (const order of orders) {
+
+    for (const order of obj) {
         const resultSum = order.items.reduce((sum, item) => {
             return sum + item.price;
         }, 0);
@@ -96,7 +96,7 @@ console.log(showUniqueProducts(orders));
 function showUserSpentMore(obj) {
     const users = {};
 
-    for (const order of orders) {
+    for (const order of obj) {
         const resultSum = order.items.reduce((sum, item) => {
             return sum + item.price;
         }, 0);
@@ -111,7 +111,6 @@ function showUserSpentMore(obj) {
     let bigSpent, maxSpent = 0;
 
     for(const user in users) {
-        console.log(users[user])
         if(users[user] > maxSpent) {
             maxSpent = users[user];
             bigSpent = user;
